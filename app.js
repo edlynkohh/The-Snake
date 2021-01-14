@@ -10,6 +10,21 @@ var snakeBoard = document.getElementById("myCanvas");
         snakeboard_ctx.fillRect(0, 0, myCanvas.width, myCanvas.height);
         // Draw a "border" around the entire canvas
         snakeboard_ctx.strokeRect(0, 0, myCanvas.width, myCanvas.height);
+
+    //-----------------------------------------------------Speed------------------------------------------------------------------//        
+
+        //speed
+        let snakeSpeed = 250;
+        let potionSpeed = 5000;
+        let virusSpeed = 2000;
+        const speedIncrease = () =>{
+            return snakeSpeed -= 20;
+        }
+
+        const speedDecrease = () =>{
+            return snakeSpeed += 15;
+        }
+    
     //-----------------------------------------------------SNAKE-----------------------------------------------------------//        
         
         //snake Color
@@ -144,3 +159,34 @@ var snakeBoard = document.getElementById("myCanvas");
                 }
             });
         }
+        //-----------------------------------------------------Button-----------------------------------------------------------//        
+
+        const moveLeft = () => {
+            dx = -10; dy = 0
+         }
+ 
+         const moveRight = () => {
+             dx = 10; dy = 0
+         }
+ 
+         const moveUp = () => {
+             dx = 0; dy = -10
+         }
+ 
+         const moveDown = () => {
+             dx = 0; dy = 10
+         }
+         const changeDirection = (event) => {
+             const left = 37;  const right = 39;  const up = 38;  const down = 40;
+             const keyPressed = event.keyCode;  const goingUp = dy === -10;  const goingDown = dy === 10;  const goingRight = dx === 10;  const goingLeft = dx === -10;
+             const upTrue = () =>  {keys[38] = true;}
+             const upFalse = () => {keys[38] = false;}
+             let upButton = document.getElementById('upArrow');
+             upButton.addEventListener('touchstart', upTrue);
+             upButton.addEventListener('touchend', upFalse);
+ 
+             if (keyPressed  === left && !goingRight) { moveLeft();}
+             if (keyPressed === right && !goingLeft) { moveRight();}
+             if (keyPressed === down && !goingUp) { moveDown();}
+             if (keyPressed === up && !goingDown) { moveUp();}
+         }
