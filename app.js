@@ -190,3 +190,20 @@ var snakeBoard = document.getElementById("myCanvas");
              if (keyPressed === down && !goingUp) { moveDown();}
              if (keyPressed === up && !goingDown) { moveUp();}
          }
+        //-----------------------------------------------------Wall Collision-----------------------------------------------------------//        
+
+
+        const hitWall = () => {
+            const hitLeftWall = snake[0].x < 0;
+            const hitRightWall = snake[0].x > myCanvas.width - 10;
+            const hitToptWall = snake[0].y < 0;
+            const hitBottomWall = snake[0].y > myCanvas.height - 10;
+            return hitLeftWall || hitRightWall || hitToptWall || hitBottomWall
+        }
+
+        //-----------------------------------------------------Virus Collision-----------------------------------------------------------//        
+
+        const virusCollision = () => {
+            const didTouchVirus = snake[0].x === poisonX && snake[0].y === poisonY;  
+            return didTouchVirus;
+        }
