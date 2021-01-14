@@ -11,6 +11,29 @@ var snakeBoard = document.getElementById("myCanvas");
         // Draw a "border" around the entire canvas
         snakeboard_ctx.strokeRect(0, 0, myCanvas.width, myCanvas.height);
 
+         //-----------------------------------------------------Score + lives-----------------------------------------------------------//        
+
+        //score
+        let score = 0;
+
+        const fontStyle = "16px Arial";
+        const fontColor = "white"
+
+        const drawScore = () => {
+            snakeboard_ctx.font = fontStyle;
+            snakeboard_ctx.fillStyle = fontColor;
+            snakeboard_ctx.fillText("Score:" + score,8,20);
+        }
+
+        let lives = 3
+
+        const drawLives = () => {
+            snakeboard_ctx.font = fontStyle;
+            snakeboard_ctx.fillStyle = fontColor;
+            snakeboard_ctx.fillText("Lives:" + lives, myCanvas.width-65, 20);
+        }
+
+
      //-----------------------------------------------------Music-------------------------------------------------------------------// 
         
      const backgroundMusic = () => {
