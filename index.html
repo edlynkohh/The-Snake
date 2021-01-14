@@ -36,7 +36,16 @@
     <div id = "container">
         <canvas id="myCanvas" width="400" height="400"></canvas>
     </div>
-    <div id="score"></div>
+    <div class="FinishScreen" style="display:none">
+			<h1>
+				Game Over
+			</h1>
+			<p>
+				Your score was: <span id="score"></span>
+			</p>
+			<input class="StartButton" type="button" value="Restart" />
+		</div>
+    
     <button id = "startButton">Start</button>
     <div id = "audio">
       <audio id = "background">

@@ -49,17 +49,6 @@ var snakeBoard = document.getElementById("myCanvas");
                 modal.style.display = "none";
             }
         }
-      
-        //function mainMenu() {
-      //  $('#main').show();
-      //}
-      /**
-       * Click handlers for the different menu screens
-       */
-      //$('.play').click(function() {
-       // $('#menu').hide();
-       // startGame();
-      //});
     
      //-----------------------------------------------------Music-------------------------------------------------------------------// 
         
@@ -241,16 +230,13 @@ var snakeBoard = document.getElementById("myCanvas");
          const changeDirection = (event) => {
              const left = 37;  const right = 39;  const up = 38;  const down = 40;
              const keyPressed = event.keyCode;  const goingUp = dy === -10;  const goingDown = dy === 10;  const goingRight = dx === 10;  const goingLeft = dx === -10;
-             const upTrue = () =>  {keys[38] = true;}
-             const upFalse = () => {keys[38] = false;}
-             let upButton = document.getElementById('upArrow');
-             upButton.addEventListener('touchstart', upTrue);
-             upButton.addEventListener('touchend', upFalse);
- 
+             //upButton.addEventListener('touchstart', upTrue);
+             //upButton.addEventListener('touchend', upFalse);
              if (keyPressed  === left && !goingRight) { moveLeft();}
              if (keyPressed === right && !goingLeft) { moveRight();}
              if (keyPressed === down && !goingUp) { moveDown();}
              if (keyPressed === up && !goingDown) { moveUp();}
+        
          }
         //-----------------------------------------------------Wall Collision-----------------------------------------------------------//        
 
@@ -310,18 +296,28 @@ var snakeBoard = document.getElementById("myCanvas");
 
         const GameOver = () => {
                 if(hitWall()) {
-                    return true,                    
-                    document.location.reload(),
-                    clearCanvas();
+                    return true,
+                    $('#myCanvas').hide(),
+                    $('#score').text(score),  
+                    $('.FinishScreen').show();
                 } else {
                     if (lives === 0) {
-                      document.location.reload(),
-                      clearCanvas();
+                    $('#myCanvas').hide(),
+                    $('#score').text(score),  
+                    $('.FinishScreen').show();
                     }
                 }
                 
         }
         
+        $('.StartButton').on('click', function (){
+            $(".SplashScreen").hide();
+			$(".FinishScreen").hide();
+			$("#myCanvas").show();
+            clearCanvas();
+            document.location.reload();
+        });
+
         $('#startButton').on('click', function (){
             gameStart();
             backgroundMusic();
