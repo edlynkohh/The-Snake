@@ -207,3 +207,68 @@ var snakeBoard = document.getElementById("myCanvas");
             const didTouchVirus = snake[0].x === poisonX && snake[0].y === poisonY;  
             return didTouchVirus;
         }
+
+        //------------------------------------------------------MAIN GAME-----------------------------------------------------------// 
+
+        const draw = () => { 
+            clearCanvas();
+            drawFood();
+            moveSnake(); 
+            drawSnake();
+            drawVirus();
+            drawPotion();
+            drawScore();
+            drawLives();
+            collisionDetection();
+        }
+
+
+        //Clear page
+        const clearCanvas = () => {
+            snakeboard_ctx.fillStyle = 'gray'; 
+            snakeboard_ctx.strokeStyle = 'black';
+            snakeboard_ctx.fillRect(0,0, myCanvas.width, myCanvas.height); snakeboard_ctx.strokeRect(0,0, myCanvas.width, myCanvas.height);
+        }
+
+        const collisionDetection = () => {
+                if (virusCollision()|| hitSnakeTail()) {
+                    lives --
+                    poisonAttackMusic();
+                    return true;
+                }
+        }
+        const gameStart = () => {
+            if (GameOver()) return;
+            setTimeout(function onTick() {draw(); gameStart(); }, snakeSpeed);
+            document.addEventListener("keydown", changeDirection);
+            document.addEventListener("touchstart", changeDirection);
+            document.addEventListener("touchend", changeDirection);
+        }
+
+        const GameOver = () => {
+                if(hitWall()) {
+                    return true,
+                    alert('Game Over'),
+                    clearCanvas(),
+                    document.location.reload();
+                } else {
+                    if (lives === 0) {
+                        alert('Game Over'),
+                      clearCanvas(),
+                      document.location.reload();
+                    }
+                }
+                  
+            
+        }
+        $('#startButton').on('click', function (){
+            gameStart();
+            backgroundMusic();
+            setInterval(() => {
+                generatePotionPosition();
+            }, potionSpeed);
+            setInterval(() => {
+                generateVirusPosition();
+            }, virusSpeed);
+        });
+    }
