@@ -16,5 +16,22 @@
     <div id = "container">
         <canvas id="myCanvas" width="400" height="400"></canvas>
     </div>
+    <div id="score"></div>
+    <button id = "startButton">Start</button>
+    <div id = "audio">
+      <audio id = "background">
+        <source src = "01 Title Screen.mp3" type = "audio/mpeg">"
+      </audio>
+      <audio id = "poison">
+        <source src = "snakehiss.mp3" type = "audio/mpeg">"
+      </audio>
+    </div>
+    <div class = mobile-arrow-control>
+      <button onClick = "moveLeft()" type = "button" id = "leftArrow">&larr;</button>
+      <button onClick = "moveRight()" type = "button" id = "rightArrow">&rarr;</button>
+      <button id = "upArrow">&uarr;</button>
+      <button id = "downArrow">&darr;</button>
+    </div>
+    <script type="text/javascript" src="app.js"></script>
 </body>
 </html>
