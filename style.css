@@ -42,16 +42,15 @@ body{
 }
 
 #startButton {
-    font: 30px/30px Monoton, cursive;
-    padding-left: 0;
-    padding-right: 0;
+    background-color: red;
+    color: ivory;
+    padding: 15px 32px;
+    font-size: 16px;
     margin-left: auto;
     margin-right: auto;
     display: block;
-    border-style: dotted;
     margin-top: 10px;
     color: #fff;
-    text-shadow: 0 0 80px #ffffff,0 0 30px #008000,0 0 6px #0000ff;
 }
 
 #container {
@@ -129,7 +128,7 @@ body{
     cursor: pointer;
   }
 
-  #aboutButton {
+  #aboutButton , #startButton{
       background-color: red;
       color: ivory;
       padding: 15px 32px;
