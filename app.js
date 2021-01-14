@@ -11,6 +11,18 @@ var snakeBoard = document.getElementById("myCanvas");
         // Draw a "border" around the entire canvas
         snakeboard_ctx.strokeRect(0, 0, myCanvas.width, myCanvas.height);
 
+     //-----------------------------------------------------Music-------------------------------------------------------------------// 
+        
+     const backgroundMusic = () => {
+        $('#background').prop('volume','0.2');
+        $('#background').trigger('play');
+    };
+
+    const poisonAttackMusic = () => {
+        $('#poison').prop('volume','0.1');
+        $('#poison').trigger('play');
+    };
+
     //-----------------------------------------------------Speed------------------------------------------------------------------//        
 
         //speed
