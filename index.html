@@ -13,19 +13,28 @@
       <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>The Snake &#128013; </h1>
     <div id = "RulesContainer">
-      <h2>Game Rules</h2>
-      <ol class='center' type = "1">
-      <li>Try to eat as many food as possible</li>
-      <li>Hitting the wall will cause immediate death &#9785; </li>
-      <li>Avoid Purple Poison</li>
-      <li>Eat Red Potion To Slow Down Your Snake Speed</li>
-    </ol>
+      <button id = "aboutButton">About</button>
+      <div id = "myModal" class = "modal">
+        <div class = "modal-content">
+          <span class = "close">&times;</span>
+          <h2>Game Rules</h2>
+          <ol class='center' type = "1">
+            <li>Try to eat as many food as possible</li>
+            <li>Hitting the wall will cause immediate death &#9785; </li>
+            <li>Avoid Purple Poison</li>
+            <li>Eat Red Potion To Slow Down Your Snake Speed</li>
+          </ol>
+        </div>
+      </div>
+    </div>
+    <div id="menu" class="main">
+      <div id="main">
+        <h1>The Snake &#128013; </h1>
+      </div>
     </div>
     <div id = "container">
         <canvas id="myCanvas" width="400" height="400"></canvas>
-        <div id="GameOver"></div>
     </div>
     <div id="score"></div>
     <button id = "startButton">Start</button>

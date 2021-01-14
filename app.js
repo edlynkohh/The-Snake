@@ -32,17 +32,35 @@ var snakeBoard = document.getElementById("myCanvas");
             snakeboard_ctx.fillStyle = fontColor;
             snakeboard_ctx.fillText("Lives:" + lives, myCanvas.width-65, 20);
         }
-
-        const drawGameOver = () => {
-            document.getElementById("GameOver").innerHTML = "Game Over!";
-            setTimeout(function() {
-                document.getElementById("GameOver").innerHTML = "";
-            },500);
+        //-----------------------------------------------------Menu-------------------------------------------------------------------// 
+      
+        const modal = document.getElementById("myModal");
+        const btn = document.getElementById("aboutButton");
+        const span = document.getElementsByClassName('close')[0];
+        btn.onclick = function () {
+            modal.style.display = "block";
+        }
+        span.onclick = function () {
+            modal.style.display = "none";
         }
 
-    //-----------------------------------------------------Menu-------------------------------------------------------------------// 
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+      
+        //function mainMenu() {
+      //  $('#main').show();
+      //}
+      /**
+       * Click handlers for the different menu screens
+       */
+      //$('.play').click(function() {
+       // $('#menu').hide();
+       // startGame();
+      //});
     
-
      //-----------------------------------------------------Music-------------------------------------------------------------------// 
         
      const backgroundMusic = () => {
@@ -303,6 +321,7 @@ var snakeBoard = document.getElementById("myCanvas");
                 }
                 
         }
+        
         $('#startButton').on('click', function (){
             gameStart();
             backgroundMusic();
