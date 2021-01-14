@@ -33,6 +33,15 @@ var snakeBoard = document.getElementById("myCanvas");
             snakeboard_ctx.fillText("Lives:" + lives, myCanvas.width-65, 20);
         }
 
+        const drawGameOver = () => {
+            document.getElementById("GameOver").innerHTML = "Game Over!";
+            setTimeout(function() {
+                document.getElementById("GameOver").innerHTML = "";
+            },500);
+        }
+
+    //-----------------------------------------------------Menu-------------------------------------------------------------------// 
+    
 
      //-----------------------------------------------------Music-------------------------------------------------------------------// 
         
@@ -274,6 +283,7 @@ var snakeBoard = document.getElementById("myCanvas");
         }
         const gameStart = () => {
             if (GameOver()) return;
+            document.getElementById("container").style.visibility = "visible";
             setTimeout(function onTick() {draw(); gameStart(); }, snakeSpeed);
             document.addEventListener("keydown", changeDirection);
             document.addEventListener("touchstart", changeDirection);
@@ -282,19 +292,16 @@ var snakeBoard = document.getElementById("myCanvas");
 
         const GameOver = () => {
                 if(hitWall()) {
-                    return true,
-                    alert('Game Over'),
-                    clearCanvas(),
-                    document.location.reload();
+                    return true,                    
+                    document.location.reload(),
+                    clearCanvas();
                 } else {
                     if (lives === 0) {
-                        alert('Game Over'),
-                      clearCanvas(),
-                      document.location.reload();
+                      document.location.reload(),
+                      clearCanvas();
                     }
                 }
-                  
-            
+                
         }
         $('#startButton').on('click', function (){
             gameStart();
