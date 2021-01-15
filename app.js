@@ -2,14 +2,18 @@ var snakeBoard = document.getElementById("myCanvas");
     if (snakeBoard != null) {
         const snakeboard_ctx = snakeBoard.getContext("2d");
         //------------------------------------------------------BackGround------------------------------------------------------//
+        let cw = myCanvas.width;
+        let ch = myCanvas.height;
+        let scw =myCanvas.width -10;
+        let sch = myCanvas.height - 10;
         const canvasBackgroundColor = "gray";
         const canvasBorderColor = 'black';
         snakeboard_ctx.fillStyle = canvasBackgroundColor;
         snakeboard_ctx.fill();
         snakeboard_ctx.strokestyle = canvasBorderColor;
-        snakeboard_ctx.fillRect(0, 0, myCanvas.width, myCanvas.height);
+        snakeboard_ctx.fillRect(0, 0, cw, ch);
         // Draw a "border" around the entire canvas
-        snakeboard_ctx.strokeRect(0, 0, myCanvas.width, myCanvas.height);
+        snakeboard_ctx.strokeRect(0, 0, cw, ch);
 
          //-----------------------------------------------------Score + lives-----------------------------------------------------------//        
 
@@ -29,7 +33,7 @@ var snakeBoard = document.getElementById("myCanvas");
         const drawLives = () => {
             snakeboard_ctx.font = fontStyle;
             snakeboard_ctx.fillStyle = fontColor;
-            snakeboard_ctx.fillText("Lives:" + lives, myCanvas.width-65, 20);
+            snakeboard_ctx.fillText("Lives:" + lives, cw-65, 20);
         }
         //-----------------------------------------------------Main-------------------------------------------------------------------// 
       
@@ -52,7 +56,7 @@ var snakeBoard = document.getElementById("myCanvas");
                 modal.style.display = "none";
             }
         }
-    
+        
      //-----------------------------------------------------Music-------------------------------------------------------------------// 
         
         const backgroundMusic = () => {
@@ -152,15 +156,15 @@ var snakeBoard = document.getElementById("myCanvas");
         const foodBorderColor = "black";
         
         const randomPosition = (min,max) =>{
-            return Math.round((Math.random() * (max - min) + min)/ 10) * 10;
+            return Math.floor((Math.random() * (max - min) + min)/ 10) * 10;
         };
 
-        foodX = randomPosition(0,myCanvas.width-10);
-        foodY = randomPosition(0, myCanvas.height-10);
+        foodX = randomPosition(0,scw);
+        foodY = randomPosition(0,sch);
 
         const generateFoodPosition = () => {
-            foodX = randomPosition(0, myCanvas.width-10);
-            foodY = randomPosition(0, myCanvas.height-10);
+            foodX = randomPosition(0, scw);
+            foodY = randomPosition(0, sch);
             snake.forEach(function isFoodOnSnake(part) {
             const foodIsOnSnake = part.x == foodX && part.y == foodY
                 if (foodIsOnSnake) {
@@ -180,12 +184,12 @@ var snakeBoard = document.getElementById("myCanvas");
 
         const poisonColor = "purple";
         
-        poisonX = randomPosition( 0,myCanvas.width-10);
-        poisonY = randomPosition( 0,myCanvas.height-10);  
+        poisonX = randomPosition( 0,scw);
+        poisonY = randomPosition( 0,sch);  
 
         const generatePoisonPosition = () => {
-            poisonX = randomPosition( 0,myCanvas.width-10);
-            poisonY = randomPosition( 0,myCanvas.height-10);  
+            poisonX = randomPosition( 0,scw);
+            poisonY = randomPosition( 0,sch);  
         }
 
 
@@ -199,8 +203,8 @@ var snakeBoard = document.getElementById("myCanvas");
 
         //------------------------------------------------------Potion-----------------------------------------------------------//
         const potionColor = "red";
-        potionX = randomPosition( 0,myCanvas.width-10);
-        potionY = randomPosition( 0,myCanvas.height-10);
+        potionX = randomPosition( 0,scw);
+        potionY = randomPosition( 0,sch);
 
         const drawPotion = () => {
             snakeboard_ctx.beginPath();
@@ -211,8 +215,8 @@ var snakeBoard = document.getElementById("myCanvas");
         }
 
         const generatePotionPosition = () => {
-            potionX = randomPosition(0, myCanvas.width-10);
-            potionY = randomPosition(0, myCanvas.height-10);
+            potionX = randomPosition(0, scw);
+            potionY = randomPosition(0, sch);
             snake.forEach(function isPotionOnSnake(part) {
             const potionIsOnSnake = part.x == potionX && part.y == potionY
                 if (potionIsOnSnake) {
@@ -280,9 +284,9 @@ var snakeBoard = document.getElementById("myCanvas");
 
         const hitWall = () => {
             const hitLeftWall = snake[0].x < 0;
-            const hitRightWall = snake[0].x > myCanvas.width - 10;
+            const hitRightWall = snake[0].x > scw;
             const hitToptWall = snake[0].y < 0;
-            const hitBottomWall = snake[0].y > myCanvas.height - 10;
+            const hitBottomWall = snake[0].y > sch;
             return hitLeftWall || hitRightWall || hitToptWall || hitBottomWall
         }
 
@@ -312,7 +316,7 @@ var snakeBoard = document.getElementById("myCanvas");
         const clearCanvas = () => {
             snakeboard_ctx.fillStyle = 'gray'; 
             snakeboard_ctx.strokeStyle = 'black';
-            snakeboard_ctx.fillRect(0,0, myCanvas.width, myCanvas.height); snakeboard_ctx.strokeRect(0,0, myCanvas.width, myCanvas.height);
+            snakeboard_ctx.fillRect(0,0, cw, ch); snakeboard_ctx.strokeRect(0,0, cw, ch);
         }
 
         const collisionDetection = () => {
