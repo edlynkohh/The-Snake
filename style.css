@@ -12,6 +12,13 @@ body{
     background-color: teal;
 }
 
+ol {
+    display: inline-block;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 20px;
+}
+
 #RulesContainer {
     text-align: center;
     font-size: 16px;
@@ -70,11 +77,13 @@ body{
   }
 
 .modal-content {
-    background-color: transparent;
-    margin: 11.5% auto; /* 15% from the top and centered */
-    padding: 5px;
+    background-color: teal;
+    align-items: center;
+    margin: 20vh 20vw auto;
+    padding: 20px;
     border: none;
-    width: 12%; /* Could be more or less, depending on screen size */
+    width: 60vw;
+    height: 30vh;
   }
 
 .close {
@@ -143,7 +152,6 @@ body{
     background-color: red;
     color: ivory;
     padding: 15px 32px;
-    font-size: 16px;
     margin-left: auto;
     margin-right: auto;
     display: block;
@@ -156,7 +164,6 @@ body{
     background-color: red;
     color: ivory;
     padding: 15px 32px;
-    font-size: 16px;
     margin-left: auto;
     margin-right: auto;
     display: block;
@@ -168,9 +175,7 @@ body{
     background-color: red;
     color: ivory;
     padding: 15px 32px;
-    font-size: 16px;
-    margin-left: 43%;
-    margin-right: auto;
+    margin-left: 30vw;
     margin-top: 10px;
     color: #fff;
 }
@@ -179,11 +184,10 @@ body{
     background-color: red;
     color: ivory;
     padding: 15px 32px;
-    font-size: 16px;
     margin-left: auto;
-    margin-right: 43%;
+    margin-right: 30%;
     display: block;
-    margin-top: -3%;
+    margin-top: -6.5vh;
     color: #fff;
 }
 
