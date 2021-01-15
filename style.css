@@ -1,10 +1,7 @@
-@font-face {
-    font-family: 'Pixeled';
-    src: url('Pixeled.ttf') format('truetype');
-  }
+@import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
 h1 {
     text-align: center;
-    font: 50px/50px monoton,cursive;
+    font-family: 'VT323', monospace;
     text-shadow: 0 0 80px #ffffff,0 0 30px #008000,0 0 6px #0000ff;
 }   
 
@@ -14,20 +11,14 @@ body{
 
 ol {
     display: inline-block;
-    margin-left: auto;
-    margin-right: auto;
     font-size: 20px;
 }
 
 #RulesContainer {
     text-align: center;
-    font-size: 16px;
-    font-style: italic;
+    font-family: 'VT323', monospace;
     border: none;
-    padding-left: 0;
-    padding-right: 0;
-    margin-left: auto;
-    margin-right: auto;
+    display: block;
 }
 #myCanvas {
     padding-left: 0;
@@ -45,7 +36,7 @@ ol {
     background-color: red;
     color: ivory;
     padding: 15px 32px;
-    font-size: 16px;
+    font-family: 'VT323', monospace;
     margin-left: auto;
     margin-right: auto;
     display: block;
@@ -102,30 +93,29 @@ ol {
 
 #aboutButton , #startButton{
       background-color: red;
+      font-family: 'VT323', monospace;
       color: ivory;
       padding: 15px 32px;
       font-size: 16px;
   }
 
 .FinishScreen {
-	margin: 0 auto;
 	text-align:center;
 	border: none;
     background-color:transparent;
     visibility: visible;
-    position: fixed; /* Stay in place */
-    z-index: 1; /* Sit on top */
+    position: fixed;
+    z-index: 1;
     left: 0;
     top: 0;
-    width: 100%; /* Full width */
-    height: 100%; /* Full height */
-    background-color: rgb(0,0,0); /* Fallback color */
-    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.4);
 }
 
 .FinishScreen h1{
 	color: #fff200;
-	font-family: 'Oswald', sans-serif;
+	font-family: 'VT323', monospace;
 	font-size: 36px;
 	font-weight: 700;
 	margin: 250px 0px 10px;
@@ -135,20 +125,12 @@ ol {
 }
 
 .FinishScreen p {
-	color: #fff;
-	font-weight: bold;
+    color: #fff;
+    font-family: 'VT323', monospace;
+	font-size: 20px;
 }
 
-.FinishScreen h2{
-	color: #ffffff;
-	font-family: 'Oswald', sans-serif;
-	font-size: 28px;
-	font-weight: 700;
-	margin: 0px 0px 25px;
-	text-align: center;
-}
-
-#upButton {
+#upButton, #downButton {
     background-color: red;
     color: ivory;
     padding: 15px 32px;
@@ -158,17 +140,6 @@ ol {
     margin-top: 10px;
     color: #fff;
 
-}
-
-#downButton {
-    background-color: red;
-    color: ivory;
-    padding: 15px 32px;
-    margin-left: auto;
-    margin-right: auto;
-    display: block;
-    margin-top: 10px;
-    color: #fff;
 }
 
 #leftButton {
@@ -189,6 +160,10 @@ ol {
     display: block;
     margin-top: -6.5vh;
     color: #fff;
+}
+.RestartButton{
+    font-family: 'VT323', monospace;
+    font-size: 20px;
 }
 
 #mobile-arrow-control {

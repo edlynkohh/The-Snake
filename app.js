@@ -16,7 +16,7 @@ var snakeBoard = document.getElementById("myCanvas");
         //score
         let score = 0;
 
-        const fontStyle = "16px Arial";
+        const fontStyle = "20px VT323";
         const fontColor = "white"
 
         const drawScore = () => {
@@ -65,7 +65,7 @@ var snakeBoard = document.getElementById("myCanvas");
     //-----------------------------------------------------Speed------------------------------------------------------------------//        
 
         //speed
-        let snakeSpeed = 250;
+        let snakeSpeed = 200;
         let potionSpeed = 5000;
         let virusSpeed = 2000;
         const speedIncrease = () =>{
@@ -236,6 +236,34 @@ var snakeBoard = document.getElementById("myCanvas");
              if (keyPressed === up && !goingDown) { moveUp();}
         
          }
+
+         $('#leftButton').on('click', function (){
+            const goingRight = dx === 10;
+            if (!goingRight) {
+                moveLeft();
+            }
+        });
+
+        $('#rightButton').on('click', function (){
+            const goingLeft = dx === -10;
+            if (!goingLeft) {
+                moveRight();
+            }
+        });
+
+        $('#upButton').on('click', function (){
+            const goingDown = dy === 10;
+            if(!goingDown) {
+                moveUp();
+            }
+        });
+
+        $('#downButton').on('click', function (){
+            const goingUp = dy === -10;
+            if(!goingUp) {
+                moveDown();
+            }
+        });
         //-----------------------------------------------------Wall Collision-----------------------------------------------------------//        
 
 
@@ -307,22 +335,6 @@ var snakeBoard = document.getElementById("myCanvas");
                 }
                 
         }
-
-        $('#leftButton').on('click', function (){
-			moveLeft();
-        });
-
-        $('#rightButton').on('click', function (){
-			moveRight();
-        });
-
-        $('#upButton').on('click', function (){
-			moveUp();
-        });
-
-        $('#downButton').on('click', function (){
-			moveDown();
-        });
         
         $('.RestartButton').on('click', function (){
 			$(".FinishScreen").hide();
