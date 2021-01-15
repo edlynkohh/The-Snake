@@ -353,4 +353,19 @@ var snakeBoard = document.getElementById("myCanvas");
                 generateVirusPosition();
             }, virusSpeed);
         });
+        // Quote API
+        const settings = {
+            "async": true,
+            "crossDomain": true,
+            "url": "https://quotes-inspirational-quotes-motivational-quotes.p.rapidapi.com/quote?token=ipworld.info",
+            "method": "GET",
+            "headers": {
+                "x-rapidapi-key": "c9b235d6a2msh8d74d31ff553040p16f0adjsndbef85fdb3f6",
+                "x-rapidapi-host": "quotes-inspirational-quotes-motivational-quotes.p.rapidapi.com"
+            }
+        };
+        
+        $.ajax(settings).done(function (response) {
+            console.log(response);
+        });
     }
