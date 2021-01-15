@@ -13,7 +13,6 @@ var snakeBoard = document.getElementById("myCanvas");
 
          //-----------------------------------------------------Score + lives-----------------------------------------------------------//        
 
-        //score
         let score = 0;
 
         const fontStyle = "20px VT323";
@@ -32,11 +31,15 @@ var snakeBoard = document.getElementById("myCanvas");
             snakeboard_ctx.fillStyle = fontColor;
             snakeboard_ctx.fillText("Lives:" + lives, myCanvas.width-65, 20);
         }
-        //-----------------------------------------------------Menu-------------------------------------------------------------------// 
+        //-----------------------------------------------------Main-------------------------------------------------------------------// 
       
         const modal = document.getElementById("myModal");
         const btn = document.getElementById("aboutButton");
         const span = document.getElementsByClassName('close')[0];
+        const restart = document.getElementById("RestartButton");
+        const startbtn = document.getElementById("startButton");
+
+        
         btn.onclick = function () {
             modal.style.display = "block";
         }
@@ -52,32 +55,30 @@ var snakeBoard = document.getElementById("myCanvas");
     
      //-----------------------------------------------------Music-------------------------------------------------------------------// 
         
-     const backgroundMusic = () => {
-        $('#background').prop('volume','0.1');
-        $('#background').trigger('play');
-    };
+        const backgroundMusic = () => {
+            $('#background').prop('volume','0.1');
+            $('#background').trigger('play');
+        };
 
-    const poisonAttackMusic = () => {
-        $('#poison').prop('volume','0.2');
-        $('#poison').trigger('play');
-    };
+        const poisonAttackMusic = () => {
+            $('#poison').prop('volume','0.2');
+            $('#poison').trigger('play');
+        };
 
-    const hitTheWallSound = () => {
-        $('#HitTheWall').prop('volume','0.2');
-        $('#HitTheWall').trigger('play');
-    }
+        const hitTheWallSound = () => {
+            $('#HitTheWall').prop('volume','0.2');
+            $('#HitTheWall').trigger('play');
+        }
 
-    const gameOverSound = () => {
-        $('#gameOver').prop('volume','0.2');
-        $('#gameOver').trigger('play');
-    }
+        const gameOverSound = () => {
+            $('#gameOver').prop('volume','0.2');
+            $('#gameOver').trigger('play');
+        }
 
     //-----------------------------------------------------Speed------------------------------------------------------------------//        
-
-        //speed
         let snakeSpeed = 200;
         let potionSpeed = 5000;
-        let virusSpeed = 2000;
+        let poisonSpeed = 2000;
         const speedIncrease = () =>{
             return snakeSpeed -= 20;
         }
@@ -147,19 +148,19 @@ var snakeBoard = document.getElementById("myCanvas");
 
          //------------------------------------------------------FOOD-----------------------------------------------------------//
 
-        const foodColor = "pink";
+        const foodColor = "green";
         const foodBorderColor = "black";
         
         const randomPosition = (min,max) =>{
             return Math.round((Math.random() * (max - min) + min)/ 10) * 10;
         };
 
-        foodX = randomPosition(0,myCanvas.width-30);
-        foodY = randomPosition(0, myCanvas.height-30);
+        foodX = randomPosition(0,myCanvas.width-10);
+        foodY = randomPosition(0, myCanvas.height-10);
 
         const generateFoodPosition = () => {
-            foodX = randomPosition(0, myCanvas.width-30);
-            foodY = randomPosition(0, myCanvas.height-30);
+            foodX = randomPosition(0, myCanvas.width-10);
+            foodY = randomPosition(0, myCanvas.height-10);
             snake.forEach(function isFoodOnSnake(part) {
             const foodIsOnSnake = part.x == foodX && part.y == foodY
                 if (foodIsOnSnake) {
@@ -177,20 +178,20 @@ var snakeBoard = document.getElementById("myCanvas");
 
         //------------------------------------------------------Virus-----------------------------------------------------------//
 
-        const virusColor = "purple";
+        const poisonColor = "purple";
         
-        poisonX = randomPosition( 0,myCanvas.width-30);
-        poisonY = randomPosition( 0,myCanvas.height-30);  
+        poisonX = randomPosition( 0,myCanvas.width-10);
+        poisonY = randomPosition( 0,myCanvas.height-10);  
 
-        const generateVirusPosition = () => {
-            poisonX = randomPosition( 0,myCanvas.width-30);
-            poisonY = randomPosition( 0,myCanvas.height-30);  
+        const generatePoisonPosition = () => {
+            poisonX = randomPosition( 0,myCanvas.width-10);
+            poisonY = randomPosition( 0,myCanvas.height-10);  
         }
 
 
-        const drawVirus = () => {
+        const drawPoison = () => {
             snakeboard_ctx.beginPath();
-            snakeboard_ctx.fillStyle = virusColor;
+            snakeboard_ctx.fillStyle = poisonColor;
             snakeboard_ctx.fillRect(poisonX, poisonY, 10, 10);
             snakeboard_ctx.strokeRect(poisonX, poisonY, 10, 10);
             snakeboard_ctx.closePath();
@@ -198,8 +199,8 @@ var snakeBoard = document.getElementById("myCanvas");
 
         //------------------------------------------------------Potion-----------------------------------------------------------//
         const potionColor = "red";
-        potionX = randomPosition( 0,myCanvas.width-30);
-        potionY = randomPosition( 0,myCanvas.height-30);
+        potionX = randomPosition( 0,myCanvas.width-10);
+        potionY = randomPosition( 0,myCanvas.height-10);
 
         const drawPotion = () => {
             snakeboard_ctx.beginPath();
@@ -210,8 +211,8 @@ var snakeBoard = document.getElementById("myCanvas");
         }
 
         const generatePotionPosition = () => {
-            potionX = randomPosition(0, myCanvas.width-30);
-            potionY = randomPosition(0, myCanvas.height-30);
+            potionX = randomPosition(0, myCanvas.width-10);
+            potionY = randomPosition(0, myCanvas.height-10);
             snake.forEach(function isPotionOnSnake(part) {
             const potionIsOnSnake = part.x == potionX && part.y == potionY
                 if (potionIsOnSnake) {
@@ -287,9 +288,9 @@ var snakeBoard = document.getElementById("myCanvas");
 
         //-----------------------------------------------------Virus Collision-----------------------------------------------------------//        
 
-        const virusCollision = () => {
-            const didTouchVirus = snake[0].x === poisonX && snake[0].y === poisonY;  
-            return didTouchVirus;
+        const poisonCollision = () => {
+            const didTouchPoison = snake[0].x === poisonX && snake[0].y === poisonY;  
+            return didTouchPoison;
         }
 
         //------------------------------------------------------MAIN GAME-----------------------------------------------------------// 
@@ -299,7 +300,7 @@ var snakeBoard = document.getElementById("myCanvas");
             drawFood();
             moveSnake(); 
             drawSnake();
-            drawVirus();
+            drawPoison();
             drawPotion();
             drawScore();
             drawLives();
@@ -315,7 +316,7 @@ var snakeBoard = document.getElementById("myCanvas");
         }
 
         const collisionDetection = () => {
-                if (virusCollision()|| hitSnakeTail()) {
+                if (poisonCollision()|| hitSnakeTail()) {
                     lives --
                     poisonAttackMusic();
                     return true;
@@ -348,24 +349,25 @@ var snakeBoard = document.getElementById("myCanvas");
                 }
                 
         }
-        
-        $('#RestartButton').on('click', function (){
-			$(".FinishScreen").hide();
+
+        restart.onclick = function () {
+            $(".FinishScreen").hide();
 			$("#myCanvas").show();
             clearCanvas();
             document.location.reload();
-        });
+        }
 
-        $('#startButton').on('click', function (){
+
+        startbtn.onclick = function (){
             gameStart();
             backgroundMusic();
             setInterval(() => {
                 generatePotionPosition();
             }, potionSpeed);
             setInterval(() => {
-                generateVirusPosition();
-            }, virusSpeed);
-        });
+                generatePoisonPosition();
+            }, poisonSpeed);
+        }
 
         //------------------------------------------------------API-----------------------------------------------------------// 
 
