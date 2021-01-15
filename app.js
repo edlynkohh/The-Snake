@@ -4,7 +4,7 @@ var snakeBoard = document.getElementById("myCanvas");
         //------------------------------------------------------BackGround------------------------------------------------------//
         let cw = myCanvas.width;
         let ch = myCanvas.height;
-        let scw =myCanvas.width -10;
+        let scw = myCanvas.width -10;
         let sch = myCanvas.height - 10;
         const canvasBackgroundColor = "gray";
         const canvasBorderColor = 'black';
@@ -381,7 +381,7 @@ var snakeBoard = document.getElementById("myCanvas");
             const quote = document.querySelector("blockquote p");
             const cite = document.querySelector("blockquote cite");
           
-            async function updateQuote() {
+            async function refreshQuote() {
               const response = await fetch("https://api.quotable.io/random");
               const data = await response.json();
               if (response.ok) {
@@ -389,7 +389,7 @@ var snakeBoard = document.getElementById("myCanvas");
                 cite.textContent = data.author;
               } 
             }
-            updateQuote();
+            refreshQuote();
           });
           
     }
