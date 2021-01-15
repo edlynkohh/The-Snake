@@ -318,11 +318,11 @@ var snakeBoard = document.getElementById("myCanvas");
 			moveRight();
         });
 
-        $('#upArrow').on('click', function (){
+        $('#upButton').on('click', function (){
 			moveUp();
         });
 
-        $('#downArrow').on('click', function (){
+        $('#downButton').on('click', function (){
 			moveDown();
         });
         
