@@ -230,8 +230,6 @@ var snakeBoard = document.getElementById("myCanvas");
          const changeDirection = (event) => {
              const left = 37;  const right = 39;  const up = 38;  const down = 40;
              const keyPressed = event.keyCode;  const goingUp = dy === -10;  const goingDown = dy === 10;  const goingRight = dx === 10;  const goingLeft = dx === -10;
-             //upButton.addEventListener('touchstart', upTrue);
-             //upButton.addEventListener('touchend', upFalse);
              if (keyPressed  === left && !goingRight) { moveLeft();}
              if (keyPressed === right && !goingLeft) { moveRight();}
              if (keyPressed === down && !goingUp) { moveDown();}
