@@ -285,7 +285,7 @@ var snakeBoard = document.getElementById("myCanvas");
         }
         const gameStart = () => {
             if (GameOver()) return;
-            document.getElementById("container").style.visibility = "visible";
+            document.getElementById("mobile-arrow-control").style.visibility = "visible";
             setTimeout(function onTick() {draw(); gameStart(); }, snakeSpeed);
             document.addEventListener("keydown", changeDirection);
             document.addEventListener("touchstart", changeDirection);
