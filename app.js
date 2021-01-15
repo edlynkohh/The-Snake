@@ -309,9 +309,24 @@ var snakeBoard = document.getElementById("myCanvas");
                 }
                 
         }
+
+        $('#leftButton').on('click', function (){
+			moveLeft();
+        });
+
+        $('#rightButton').on('click', function (){
+			moveRight();
+        });
+
+        $('#upArrow').on('click', function (){
+			moveUp();
+        });
+
+        $('#downArrow').on('click', function (){
+			moveDown();
+        });
         
-        $('.StartButton').on('click', function (){
-            $(".SplashScreen").hide();
+        $('.RestartButton').on('click', function (){
 			$(".FinishScreen").hide();
 			$("#myCanvas").show();
             clearCanvas();
