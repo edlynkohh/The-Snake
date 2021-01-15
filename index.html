@@ -25,8 +25,8 @@
           <ol class='center' type = "1">
             <li>Try to eat as many food as possible</li>
             <li>Hitting the wall will cause immediate death &#9785; </li>
-            <li>Avoid Purple Poison</li>
-            <li>Eat Red Potion To Slow Down Your Snake Speed</li>
+            <li>Avoid &#129002; Poison</li>
+            <li>Eat &#128997; Potion To Slow Down Your Snake Speed</li>
           </ol>
         </div>
       </div>
@@ -36,19 +36,25 @@
         <h1>The Snake &#128013; </h1>
       </div>
     </div>
+        <blockquote class="RandomQuote">
+          <p></p>
+          <footer class="RandomQuote-footer">
+            <cite title="Author Quote"></cite>
+          </footer>
+        </blockquote>
+      </div>
     <div id = "container">
         <canvas id="myCanvas" width="400" height="400"></canvas>
     </div>
-    <div class="FinishScreen" style="display:none">
+    <div class="FinishScreen">
 			<h1>
 				Game Over
 			</h1>
 			<p>
 				Your score was: <span id="score"></span>
 			</p>
-			<input class="RestartButton" type="button" value="Restart" />
-		</div>
-    
+			<button id="RestartButton">Restart</button>
+    </div>
     <button id = "startButton">Start</button>
     <div id = "audio">
       <audio id = "background">

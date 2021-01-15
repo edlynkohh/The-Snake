@@ -103,7 +103,7 @@ ol {
 	text-align:center;
 	border: none;
     background-color:transparent;
-    visibility: visible;
+    display: none;
     position: fixed;
     z-index: 1;
     left: 0;
@@ -161,11 +161,15 @@ ol {
     margin-top: -6.5vh;
     color: #fff;
 }
-.RestartButton{
+#RestartButton{
     font-family: 'VT323', monospace;
     font-size: 20px;
 }
 
 #mobile-arrow-control {
     visibility: hidden;
+}
+  
+.RandomQuote {
+    text-align: center;
 }

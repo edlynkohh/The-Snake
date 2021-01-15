@@ -336,7 +336,7 @@ var snakeBoard = document.getElementById("myCanvas");
                 
         }
         
-        $('.RestartButton').on('click', function (){
+        $('#RestartButton').on('click', function (){
 			$(".FinishScreen").hide();
 			$("#myCanvas").show();
             clearCanvas();
@@ -353,19 +353,20 @@ var snakeBoard = document.getElementById("myCanvas");
                 generateVirusPosition();
             }, virusSpeed);
         });
-        // Quote API
-        const settings = {
-            "async": true,
-            "crossDomain": true,
-            "url": "https://quotes-inspirational-quotes-motivational-quotes.p.rapidapi.com/quote?token=ipworld.info",
-            "method": "GET",
-            "headers": {
-                "x-rapidapi-key": "c9b235d6a2msh8d74d31ff553040p16f0adjsndbef85fdb3f6",
-                "x-rapidapi-host": "quotes-inspirational-quotes-motivational-quotes.p.rapidapi.com"
+
+        document.addEventListener("DOMContentLoaded", () => {
+            const quote = document.querySelector("blockquote p");
+            const cite = document.querySelector("blockquote cite");
+          
+            async function updateQuote() {
+              const response = await fetch("https://api.quotable.io/random");
+              const data = await response.json();
+              if (response.ok) {
+                quote.textContent = data.content;
+                cite.textContent = data.author;
+              } 
             }
-        };
-        
-        $.ajax(settings).done(function (response) {
-            console.log(response);
-        });
+            updateQuote();
+          });
+          
     }
