@@ -17,17 +17,17 @@
 </head>
 <body>
     <div id = "RulesContainer">
-      <button id = "aboutButton">About</button>
+      <button id = "aboutButton" span style="cursor:pointer">About</button>
       <div id = "myModal" class = "modal">
         <div class = "modal-content">
           <span class = "close">&times;</span>
           <h2>Game Rules</h2>
-          <ol class='center' type = "1">
-            <li>Try to eat as many food as possible</li>
-            <li>Hitting the wall will cause immediate death &#9785; </li>
-            <li>Avoid &#129002; Poison</li>
-            <li>Eat &#128997; Potion To Slow Down Your Snake Speed</li>
-          </ol>
+          <ul class='center'>
+            <li>Rule No 1: Eat Food To Score Points (Total Lives: 3)</li>
+            <li>Rule No 2: Hitting The Wall Will Cause Immediate Death &#9785; </li>
+            <li>Rule No 3: Avoid Purple Poison &#129002;</li>
+            <li>Rule No 4: Eat Red Potion &#128997; To Slow Down Your Snake Speed</li>
+          </ul>
         </div>
       </div>
     </div>
@@ -53,15 +53,21 @@
 			<p>
 				Your score was: <span id="score"></span>
 			</p>
-			<button id="RestartButton">Restart</button>
+			<button id="RestartButton" span style="cursor:pointer">Restart</button>
     </div>
-    <button id = "startButton">Start</button>
+    <button id = "startButton" span style="cursor:pointer">Start</button>
     <div id = "audio">
       <audio id = "background">
-        <source src = "01 Title Screen.mp3" type = "audio/mpeg">"
+        <source src = "/Sounds/01 Title Screen.mp3" type = "audio/mpeg">"
       </audio>
       <audio id = "poison">
-        <source src = "snakehiss.mp3" type = "audio/mpeg">"
+        <source src = "/Sounds/snakehiss.mp3" type = "audio/mpeg">"
+      </audio>
+      <audio id = "HitTheWall">
+        <source src = "/Sounds/zapsplat_impacts_body_hit_baseball_bat_hard_whack_crack_squelchy_bloody_001_44147.mp3" type = "audio/mpeg">"
+      </audio>
+      <audio id = "gameOver">
+        <source src = "/Sounds/zapsplat_multimedia_game_sound_fun_arcade_organ_short_negative_fail_lose_001_54274.mp3" type = "audio/mpeg">"
       </audio>
     </div>
     <div id = mobile-arrow-control>

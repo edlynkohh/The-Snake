@@ -53,14 +53,24 @@ var snakeBoard = document.getElementById("myCanvas");
      //-----------------------------------------------------Music-------------------------------------------------------------------// 
         
      const backgroundMusic = () => {
-        $('#background').prop('volume','0.2');
+        $('#background').prop('volume','0.1');
         $('#background').trigger('play');
     };
 
     const poisonAttackMusic = () => {
-        $('#poison').prop('volume','0.1');
+        $('#poison').prop('volume','0.2');
         $('#poison').trigger('play');
     };
+
+    const hitTheWallSound = () => {
+        $('#HitTheWall').prop('volume','0.2');
+        $('#HitTheWall').trigger('play');
+    }
+
+    const gameOverSound = () => {
+        $('#gameOver').prop('volume','0.2');
+        $('#gameOver').trigger('play');
+    }
 
     //-----------------------------------------------------Speed------------------------------------------------------------------//        
 
@@ -322,13 +332,16 @@ var snakeBoard = document.getElementById("myCanvas");
 
         const GameOver = () => {
                 if(hitWall()) {
+                    hitTheWallSound();
                     return true,
-                    $('#myCanvas').hide(),
+                    gameOverSound(),
+                    clearCanvas(),
                     $('#score').text(score),  
                     $('.FinishScreen').show();
                 } else {
                     if (lives === 0) {
-                    $('#myCanvas').hide(),
+                    gameOverSound(),
+                    clearCanvas(),
                     $('#score').text(score),  
                     $('.FinishScreen').show();
                     }
@@ -353,6 +366,9 @@ var snakeBoard = document.getElementById("myCanvas");
                 generateVirusPosition();
             }, virusSpeed);
         });
+
+        //------------------------------------------------------API-----------------------------------------------------------// 
+
 
         document.addEventListener("DOMContentLoaded", () => {
             const quote = document.querySelector("blockquote p");

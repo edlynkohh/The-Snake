@@ -19,13 +19,18 @@ Game Demo Link : https://edlynkohh.github.io/The-Snake/.
 
 ## API used
 
+<li> source code: https://github.com/lukePeavey/quotable
+
 ## Game Instructions
 
 <li> Control the snake using keyboard arrows
+<img src = "Screenshots/Starting Page.png">
 <li> For mobile version, user may use the arrow key on the screen
+<img src = "Screenshots/Mobile.png">
 <li> Go after the food to score points and speed of the snake will increase
 <li> Avoid the poison as it will cost you one live
 <li> Avoid the wall as it will lead to immediate death
+<img src = "Screenshots/GameOver.png">
 <li> Red potion serves as an aid to slow down your snake
 
 ## Accomplishments
